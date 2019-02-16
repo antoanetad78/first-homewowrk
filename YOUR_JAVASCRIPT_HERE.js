@@ -10,18 +10,6 @@ const hero = {
     }
 }
 
-// const heroLikeCreature = {
-//     health: 2,
-//     inventory: [{
-//         type: 'dagger',
-//         damage: 2
-//     }],
-//     weapon: {
-//         type:'sword',
-//         damage: 5
-//     }
-// }
-
 const dagger = {
     type: 'dagger',
     damage: 2
@@ -32,24 +20,21 @@ function rest(someObject) {
     return someObject;
 }
 
-// rest(heroLikeCreature)
 
 function pickUpItem(heroLikeObject, itemToPickObject) {
     heroLikeObject.inventory.push(itemToPickObject)
 }
 
-// pickUpItem(hero, hero.weapon)
 
 
 function equipWeapon(heroLikeObject) {
     
     if (heroLikeObject.inventory.length !== 0){
         let weapon = heroLikeObject.weapon
-        heroLikeObject.inventory[0] = weapon
+        heroLikeObject.inventory.unshift(weapon)
+        heroLikeObject.weapon = heroLikeObject.inventory[1]
     }
     return
 
     
 }
-
-// equipWeapon(hero)
