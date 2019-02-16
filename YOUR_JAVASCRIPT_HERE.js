@@ -10,20 +10,28 @@ const hero = {
     }
 }
 
-const creature = {
+const heroLikeCreature = {
     health: 2
 }
 
-function rest(theObject) {
-    theObject.health = 10
-    return theObject;
+const dagger = {
+    type: 'dagger',
+    damage: 2
 }
 
-rest(creature)
-
-function pickUpItem() {
-    
+function rest(someObject) {
+    someObject.health = 10
+    return someObject;
 }
+
+rest(heroLikeCreature)
+
+function pickUpItem(heroLikeObject, itemToPickObject) {
+    heroLikeObject.inventory.push(itemToPickObject)
+}
+
+pickUpItem(hero, hero.weapon)
+
 
 function equipWeapon() {
 
