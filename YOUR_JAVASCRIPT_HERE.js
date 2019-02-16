@@ -34,7 +34,37 @@ function equipWeapon(heroLikeObject) {
         heroLikeObject.inventory.unshift(weapon)
         heroLikeObject.weapon = heroLikeObject.inventory[1]
     }
-    return
-
-    
+    return    
 }
+
+function displayStats(hero) {
+    const displayStats = document.getElementById('displayStats')
+    const name = hero.name
+    const health = hero.health;
+    const weaponType = hero.weapon.type;
+    const weaponDamage = hero.weapon.damage;
+    document.getElementById('name').innerText = name;
+    document.getElementById('type').innerText = weaponType;
+    document.getElementById('damage').innerText = weaponDamage;
+    document.getElementById('health').innerText = health;
+    if (displayStats.className==='visible') {
+        displayStats.classList.remove('visible');
+        displayStats.classList.add('hidden');
+    } else {
+        displayStats.classList.remove('hidden')
+        displayStats.classList.add('visible')
+    }
+
+
+}
+function changeName() {
+    
+    const newName = document.getElementById('newName').value
+    console.log(newName);
+    
+    hero.name = newName;
+    return hero.name;
+}
+
+console.log(hero.name);
+

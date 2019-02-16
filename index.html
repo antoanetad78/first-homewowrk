@@ -9,14 +9,48 @@
 
 
   <!-- YOUR HTML HERE -->
+    <aside>
+      <img id="inn" src="./images/inn.png" alt="a place to rest" onclick="rest(hero)">  
   
-    <img id="inn" src="./images/inn.png" alt="" onclick="rest(hero)">  
+      <img id="dagger" src="./images/dagger.png" alt="dagger" onclick="pickUpItem(hero, dagger)"> 
   
-    <img id="dagger" src="./images/dagger.png" alt="" onclick="pickUpItem(hero, dagger)"> 
+      <img id="bag" src="./images/bag.svg" alt="backpack" onclick="hero.inventory[0]={type:'bag', damage: 0}">
+    </aside>
 
-    <img id="bag" src="./images/bag.svg" alt="" onclick="hero.inventory[0]={type:'bag', damage: 0}">
+    <main>
+      <button onclick="displayStats(hero)">Show Hero Statistics</button>
+      <img id="hero" src="./images/hero.svg" alt="hero">
+      <table id="displayStats" class="hidden">
+        <th colspan="3">Hero's Statistics</th>
+        <tr>
+          <td>Hero's Name:</td>
+          <td id="name" colspan="2"></td>
+        </tr>
+        <tr>
+          <td>Health:</td>
+          <td id="health" colspan="2"></td>
+        </tr>
+        <tr>
+          <td rowspan="2" colspan="1">Weapon:</td>
+          <td>type</td>
+          <td>damage</td>
+        </tr>
+        <tr>
+          <td id="type"></td>
+          <td id="damage"></td>
+        </tr>
+  
+      </table>
 
-    
+      <form onsubmit="changeName(); return false">
+        <label for="newName">Give your hero a new name</label>
+        <input type="text" id="newName" name="newname">
+        <button type="submit">Change</button>
+      </form>
+    </main>
+
+
+
   
   <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
   <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
